@@ -145,7 +145,7 @@ jobs:
           </manifest>
           EOF
 
-            - name: Enable AndroidX
+      - name: Enable AndroidX
         run: echo "android.useAndroidX=true" >> gradle.properties
 
       - name: Build debug APK
