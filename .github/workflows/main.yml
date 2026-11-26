@@ -147,7 +147,11 @@ jobs:
 
       - name: Enable AndroidX
         run: echo "android.useAndroidX=true" >> gradle.properties
-
+      - name: Configure Gradle memory
+        run: |
+          echo "org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8" >> gradle.properties
+          echo "org.gradle.workers.max=2" >> gradle.properties
+          echo "org.gradle.parallel=false" >> gradle.properties
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
 
